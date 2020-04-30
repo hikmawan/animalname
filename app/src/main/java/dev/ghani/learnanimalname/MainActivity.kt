@@ -18,12 +18,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //load animals
-        listOfAnimals.add(Animal("Baboon", "Ini adalah Baboon",R.drawable.baboon))
-        listOfAnimals.add(Animal("Buldlog", "Ini adalah Anjing Bulldog",R.drawable.bulldog))
-        listOfAnimals.add(Animal("Panda", "Ini adalah Panda",R.drawable.panda))
-        listOfAnimals.add(Animal("Swallow Bird", "Ini adalah Burung Swallow",R.drawable.swallow_bird))
-        listOfAnimals.add(Animal("White Tiger", "Ini adalah Macan Putih",R.drawable.white_tiger))
-        listOfAnimals.add(Animal("Zebra", "Ini adalah Kuda Zebra",R.drawable.zebra))
+        listOfAnimals.add(Animal("Baboon", "Ini adalah Baboon",R.drawable.baboon,false))
+        listOfAnimals.add(Animal("Buldlog", "Ini adalah Anjing Bulldog",R.drawable.bulldog,false))
+        listOfAnimals.add(Animal("Panda", "Ini adalah Panda",R.drawable.panda,true))
+        listOfAnimals.add(Animal("Swallow Bird", "Ini adalah Burung Swallow",R.drawable.swallow_bird,false))
+        listOfAnimals.add(Animal("White Tiger", "Ini adalah Macan Putih",R.drawable.white_tiger,true))
+        listOfAnimals.add(Animal("Zebra", "Ini adalah Kuda Zebra",R.drawable.zebra,false))
 
         adapter = AnimalsAdapter(this,listOfAnimals)
         tvListAnimal.adapter = adapter
@@ -39,13 +39,23 @@ class MainActivity : AppCompatActivity() {
         }
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val animal = listOfAnimals[position]
-            var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            var myView = inflator.inflate(R.layout.animal_ticket,null)
-            myView.tvName.text = animal.name!!
-            myView.tvDes.text = animal.des!!
-            myView.ivAnimalImage.setImageResource(animal.image!!)
+            if (animal.isKiller == true){
+                var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                var myView = inflator.inflate(R.layout.animal_killer_ticket,null)
+                myView.tvName.text = animal.name!!
+                myView.tvDes.text = animal.des!!
+                myView.ivAnimalImage.setImageResource(animal.image!!)
 
-            return myView
+                return myView
+            } else {
+                var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                var myView = inflator.inflate(R.layout.animal_ticket,null)
+                myView.tvName.text = animal.name!!
+                myView.tvDes.text = animal.des!!
+                myView.ivAnimalImage.setImageResource(animal.image!!)
+
+                return myView
+            }
         }
 
         override fun getItem(position: Int): Any {
