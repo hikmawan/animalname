@@ -12,10 +12,11 @@
     android:paddingBottom="5pt">
 
     <LinearLayout
-        android:background="@drawable/background"
+        android:id="@+id/llAnimalTicket"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@drawable/background"
         android:orientation="horizontal">
 
         <ImageView

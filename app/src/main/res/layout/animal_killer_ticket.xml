@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llAnimalKillerTicket"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:background="@color/grey"
+    android:orientation="horizontal"
     android:padding="5pt"
     android:paddingLeft="5pt"
     android:paddingTop="5pt"
@@ -12,10 +13,10 @@
     android:paddingBottom="5pt">
 
     <LinearLayout
-        android:background="@drawable/background_killer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@drawable/background_killer"
         android:orientation="horizontal">
 
         <ImageView
